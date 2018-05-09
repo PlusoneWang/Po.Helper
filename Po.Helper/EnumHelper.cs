@@ -4,6 +4,9 @@
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
+    /// <summary>
+    /// Enum的屬性存取輔助
+    /// </summary>
     public static class EnumHelper
     {
         /// <summary>
