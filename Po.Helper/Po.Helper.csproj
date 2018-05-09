@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Plusone</Authors>
+    <Description>一些零散的輔助方法</Description>
+    <PackageLicenseUrl>https://github.com/PlusoneWang/Po.Helper/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/PlusoneWang/Po.Helper</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
