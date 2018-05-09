@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Po.Helper.Mvc</id>
+    <version>1.0.0</version>
+    <authors>Plusone</authors>
+    <owners>Plusone</owners>
+    <licenseUrl>https://github.com/PlusoneWang/Po.Helper/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/PlusoneWang/Po.Helper</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>用於MVC專案的輔助類別庫</description>
+    <copyright>Copyright 2018</copyright>
+  </metadata>
+</package>

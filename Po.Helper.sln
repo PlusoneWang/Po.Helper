@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Po.Helper", "Po.Helper\Po.Helper.csproj", "{B812D892-8504-452A-818F-E80AC38D071E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Po.Helper", "Po.Helper\Po.Helper.csproj", "{B812D892-8504-452A-818F-E80AC38D071E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Po.Helper.Mvc", "Po.Helper.Mvc\Po.Helper.Mvc.csproj", "{9FAB16FB-800F-40DC-81ED-8ED66C6AC3AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B812D892-8504-452A-818F-E80AC38D071E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B812D892-8504-452A-818F-E80AC38D071E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B812D892-8504-452A-818F-E80AC38D071E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FAB16FB-800F-40DC-81ED-8ED66C6AC3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FAB16FB-800F-40DC-81ED-8ED66C6AC3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FAB16FB-800F-40DC-81ED-8ED66C6AC3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FAB16FB-800F-40DC-81ED-8ED66C6AC3AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
