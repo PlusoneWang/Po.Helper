@@ -5,6 +5,9 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    /// <summary>
+    /// 用於MVC專案的輔助類別
+    /// </summary>
     public static class MvcHelper
     {
         /// <summary>

@@ -6,11 +6,19 @@
     <Description>一些零散的輔助方法</Description>
     <PackageLicenseUrl>https://github.com/PlusoneWang/Po.Helper/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/PlusoneWang/Po.Helper</PackageProjectUrl>
-    <FileVersion>1.0.1.0</FileVersion>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <Version>1.0.1</Version>
+    <FileVersion>1.0.2.0</FileVersion>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\Po.Helper.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net46'">
+    <DocumentationFile>bin\Debug\net46\Po.Helper.xml</DocumentationFile>
+  </PropertyGroup>
+  
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
   </ItemGroup>
