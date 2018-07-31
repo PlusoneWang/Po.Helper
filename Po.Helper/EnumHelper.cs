@@ -1,6 +1,7 @@
 ﻿namespace Po.Helper
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
@@ -164,7 +165,7 @@
             {
                 return GetAttribute<T, DisplayAttribute>(enumValue).ShortName;
             }
-            catch (Exception )
+            catch (Exception)
             {
                 return string.Empty;
             }
@@ -181,6 +182,24 @@
             var property = Enum.Parse(typeof(T), Convert.ToString(enumValue));
 
             return (string)property;
+        }
+
+        /// <summary>
+        /// 使用自訂方法，依序對所有列舉物件執行方法，並取得方法回傳值所構成的<![CDATA[IEnumerable<T>]]>物件
+        /// </summary>
+        /// <typeparam name="T">IEnumerable的裝載型別</typeparam>
+        /// <typeparam name="TEnum">列舉型別</typeparam>
+        /// <param name="getT">自訂方法，表示要對每個列舉物件執行的動作</param>
+        /// <returns>自訂方法回傳值所構成的<![CDATA[IEnumerable<T>]]>物件</returns>
+        public static IEnumerable<T> AsIEnumerable<T, TEnum>(Func<Enum, T> getT) where TEnum : Enum
+        {
+            var result = new List<T>();
+            foreach (var value in Enum.GetValues(typeof(TEnum)))
+            {
+                result.Add(getT((Enum)value));
+            }
+
+            return result;
         }
     }
 }
