@@ -18,14 +18,13 @@
         /// <exception cref="NullReferenceException">型別轉換時發生錯誤</exception>
         /// <exception cref="Exception">Cannot find specified attribute type from enum object.</exception>
         /// <returns>指定的屬性物件</returns>
-        public static TAttribute GetAttribute<TAttribute>(this Enum enumObj)
+        public static TAttribute GetAttribute<TAttribute>(this Enum enumObj) where TAttribute : Attribute
         {
             var objName = enumObj.ToString();
             var type = enumObj.GetType();
             var fieldInfo = type.GetField(objName);
-            var attributes = fieldInfo.GetCustomAttributes(typeof(TAttribute), false) as TAttribute[];
 
-            if (attributes == null)
+            if (!(fieldInfo.GetCustomAttributes(typeof(TAttribute), false) is TAttribute[] attributes))
                 throw new NullReferenceException("型別轉換時發生錯誤");
 
             if (attributes.Length == 0)
@@ -37,13 +36,13 @@
         /// <summary>
         /// 取得列舉值對應之列舉物件中指定的屬性
         /// </summary>
-        /// <typeparam name="T">列舉類型</typeparam>
+        /// <typeparam name="TEnum">列舉類型</typeparam>
         /// <typeparam name="TAttribute">指定的屬性類型</typeparam>
         /// <param name="enumValue">列舉值</param>
         /// <returns>指定的屬性物件</returns>
-        public static TAttribute GetAttribute<T, TAttribute>(this int enumValue)
+        public static TAttribute GetAttribute<TEnum, TAttribute>(this int enumValue) where TEnum : Enum where TAttribute : Attribute
         {
-            var e = Enum.Parse(typeof(T), Convert.ToString(enumValue));
+            var e = Enum.Parse(typeof(TEnum), Convert.ToString(enumValue));
 
             return ((Enum)e).GetAttribute<TAttribute>();
         }
@@ -71,17 +70,17 @@
         /// <summary>
         /// 取得列舉值所表示的列舉物件的顯示名稱
         /// </summary>
-        /// <typeparam name="T">列舉類型</typeparam>
+        /// <typeparam name="TEnum">列舉類型</typeparam>
         /// <param name="enumValue">列舉值</param>
         /// <returns>
         /// 列舉顯示名稱
         /// <remarks>如果執行中發生例外，將回傳<see cref="string.Empty"/></remarks>
         /// </returns>
-        public static string GetDisplayName<T>(this int enumValue)
+        public static string GetDisplayName<TEnum>(this int enumValue) where TEnum : Enum
         {
             try
             {
-                return GetAttribute<T, DisplayAttribute>(enumValue).Name;
+                return GetAttribute<TEnum, DisplayAttribute>(enumValue).Name;
             }
             catch (Exception)
             {
@@ -112,17 +111,17 @@
         /// <summary>
         /// 取得列舉值所表示的列舉物件的描述
         /// </summary>
-        /// <typeparam name="T">列舉類型</typeparam>
+        /// <typeparam name="TEnum">列舉類型</typeparam>
         /// <param name="enumValue">列舉值</param>
         /// <returns>
         /// 列舉描述
         /// <remarks>如果執行中發生例外，將回傳<see cref="string.Empty"/></remarks>
         /// </returns>
-        public static string GetDescription<T>(this int enumValue)
+        public static string GetDescription<TEnum>(this int enumValue) where TEnum : Enum
         {
             try
             {
-                return GetAttribute<T, DescriptionAttribute>(enumValue).Description;
+                return GetAttribute<TEnum, DescriptionAttribute>(enumValue).Description;
             }
             catch (Exception)
             {
@@ -153,17 +152,17 @@
         /// <summary>
         /// 取得列舉值所表示的列舉物件的短名稱
         /// </summary>
-        /// <typeparam name="T">列舉類型</typeparam>
+        /// <typeparam name="TEnum">列舉類型</typeparam>
         /// <param name="enumValue">列舉值</param>
         /// <returns>
         /// 列舉短名稱
         /// <remarks>如果執行中發生例外，將回傳<see cref="string.Empty"/></remarks>
         /// </returns>
-        public static string GetShortNames<T>(this int enumValue)
+        public static string GetShortNames<TEnum>(this int enumValue) where TEnum : Enum
         {
             try
             {
-                return GetAttribute<T, DisplayAttribute>(enumValue).ShortName;
+                return GetAttribute<TEnum, DisplayAttribute>(enumValue).ShortName;
             }
             catch (Exception)
             {
@@ -174,14 +173,14 @@
         /// <summary>
         /// 取得列舉Property名稱
         /// </summary>
-        /// <typeparam name="T">列舉類別</typeparam>
+        /// <typeparam name="TEnum">列舉類別</typeparam>
         /// <param name="enumValue">列舉數字</param>
         /// <returns>列舉名稱</returns>
-        public static string GetName<T>(this int enumValue)
+        public static string GetName<TEnum>(this int enumValue) where TEnum : Enum
         {
-            var property = Enum.Parse(typeof(T), Convert.ToString(enumValue));
+            var property = Enum.Parse(typeof(TEnum), Convert.ToString(enumValue));
 
-            return (string)property;
+            return property.ToString();
         }
 
         /// <summary>
